@@ -1,0 +1,32 @@
+Gold Layer Summary
+
+1. Create Gold Schema
+- Created the Gold schema to store the final analytical tables.
+
+2. Create Dimension Tables
+- Created Dim_Location to store location information (City, Latitude, Longitude).
+- Created Dim_Room to store room details (Room Type, Bedrooms, Person Capacity, Room Shared, Room Private).
+- Created Dim_DayType to store day type values (Weekdays, Weekends).
+
+3. Load Dimension Tables
+- Loaded unique records into each dimension table using SELECT DISTINCT.
+- Generated surrogate keys using IDENTITY(1,1).
+
+4. Create Fact Table
+- Created Fact_AirBnB to store the measurable business data.
+- Added foreign keys to reference all dimension tables.
+
+5. Load Fact Table
+- Loaded data from Silver.AirBnB.
+- Joined the Silver table with all dimensions to replace descriptive values with surrogate keys.
+- Stored measures such as:
+  • Price
+  • Rating
+  • Cleanliness Rating
+  • Superhost
+  • Multi Listing
+  • Bis Listing
+
+6. Data Validation
+- Verified that the number of records in Fact_AirBnB matches the number of records in Silver.AirBnB.
+- Verified that there are no NULL foreign keys after loading the fact table.

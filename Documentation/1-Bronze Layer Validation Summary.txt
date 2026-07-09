@@ -1,0 +1,51 @@
+Bronze Layer Validation Summary
+
+1. Check Nulls
+- Checked all columns for NULL values.
+- Checked string columns for empty values and whitespace using LTRIM(RTRIM()).
+- Result: No NULL or empty values found.
+
+2. Data Type 
+- Validated that all columns can be converted to their target data types:
+  • price -> DECIMAL
+  • room_shared -> BIT
+  • room_private -> BIT
+  • person_capacity -> INT
+  • superhost -> BIT
+  • multi_listing -> BIT
+  • bis_listing -> BIT
+  • cleanliness_rating -> TINYINT
+  • rating -> TINYINT
+  • bedrooms -> TINYINT
+  • lng -> DECIMAL
+  • lat -> DECIMAL
+- Result: All values are valid.
+
+3. Domain Validation
+- Checked distinct values for categorical columns.
+- Checked minimum and maximum values for numeric columns.
+- Result:
+  • room_type = Entire home/apt
+  • room_shared = FALSE
+  • room_private = FALSE
+  • superhost = TRUE / FALSE
+  • multi_listing = 0 / 1
+  • bis_listing = 0 / 1
+  • day_type = weekdays / weekends
+  • Cities are valid.
+  • Numeric ranges are valid.
+
+4. Check Duplicate 
+- Checked for fully duplicated rows.
+- Result: 7 duplicate records found.
+
+5. Out OF Range Validation
+- Checked:
+  • price > 0
+  • person_capacity >= 1
+  • bedrooms >= 2
+  • cleanliness_rating between 0 and 10
+  • rating between 0 and 100
+  • latitude between -90 and 90
+  • longitude between -180 and 180
+- Result: All passed.

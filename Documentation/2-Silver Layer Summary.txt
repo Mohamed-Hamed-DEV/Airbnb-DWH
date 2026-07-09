@@ -1,0 +1,39 @@
+Silver Layer Summary
+
+1. Remove Duplicates
+- Removed fully duplicated records using SELECT DISTINCT.
+- Loaded the unique records into a staging table (Silver.AirBnB_Stage).
+
+2. Create Silver Table
+- Created the final Silver.AirBnB table.
+- Added listing_id as a Surrogate Key using IDENTITY(1,1).
+- Set listing_id as the Primary Key.
+
+3. Data Cleaning
+- Removed leading and trailing spaces using LTRIM(RTRIM()).
+- Converted empty string values to NULL using NULLIF().
+
+4. Data Type Conversion
+- price -> DECIMAL(12,2)
+- room_shared -> BIT
+- room_private -> BIT
+- person_capacity -> TINYINT
+- superhost -> BIT
+- multi_listing -> BIT
+- bis_listing -> BIT
+- cleanliness_rating -> TINYINT
+- rating -> TINYINT
+- bedrooms -> TINYINT
+- lng -> DECIMAL(10,6)
+- lat -> DECIMAL(10,6)
+- city -> VARCHAR(50)
+- day_type -> VARCHAR(20)
+
+5. Boolean Conversion
+- Converted TRUE/FALSE values into BIT values (1/0) using CASE.
+
+6. Load Clean Data
+- Inserted the cleaned and transformed data from the staging table into Silver.AirBnB.
+
+7. Remove Staging Table
+- Dropped the temporary staging table after the loading process.
